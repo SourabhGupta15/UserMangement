@@ -2,6 +2,7 @@ package com.newgen.user.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
@@ -19,6 +20,11 @@ public class UserService {
 
 	public List<User> findAll() {
 		return userList;
+	}
+
+	public static Optional<User> getUserByID(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

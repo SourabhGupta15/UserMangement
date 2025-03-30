@@ -14,7 +14,7 @@ public class UserResource {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping(path = "/users")
+	@GetMapping(path = "/usAll")
 	public List<User> findAll(){
 		return userService.findAll();
 	}
