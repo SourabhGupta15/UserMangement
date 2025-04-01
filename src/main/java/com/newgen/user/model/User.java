@@ -1,41 +1,98 @@
 package com.newgen.user.model;
 
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "users")
-public class User {
+//@Data
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class User implements UserDetails{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	private String name;
+	@Column(nullable = false)
+	private String fullName;
 	
-	public String getName() {
-		return name;
-	}
+	@Email
+	@Column(nullable = false)
+	private String email;
 	
-	public void setName(String name) {
-		this.name = name;
-	}
+	@Column(nullable = false)
+	private String password;
 	
-	public Integer getId() {
-		return id;
-	}
+	@CreationTimestamp
+	@Column(nullable = false, name = "created_at")
+	private Date createdAt;
+	
+	@UpdateTimestamp
+	@Column(nullable = false, name = "last_updated_at")
+	private Date lastUpdatedAt;
 	
 	public User(Integer id, String name) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.fullName = name;
 	}
 	
-	public User() {
-		super();
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return List.of();
 	}
 
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+	
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 }
