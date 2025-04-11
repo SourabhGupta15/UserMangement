@@ -18,17 +18,14 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Table(name = "users")
-//@Data
-@Getter
-@Setter
-@ToString
+@Data
+//@Getter
+//@Setter
+//@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class User implements UserDetails{
@@ -69,8 +66,7 @@ public class User implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
+		return email;
 	}
 	
 	@Override
@@ -80,19 +76,16 @@ public class User implements UserDetails{
 	
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 	
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 }

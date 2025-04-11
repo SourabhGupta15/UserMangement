@@ -23,11 +23,11 @@ public class UserJPAService {
 		return userRepository.findById(id);
 	}
 	
-	public User createUser(User user) {
-		return userRepository.save(user);
-	}
-	
-	public void deleteUser(Integer id) {
-		userRepository.deleteById(id);
-	}
+//	public User createUser(User user) {
+//		return userRepository.save(user);
+//	}
+//	
+//	public void deleteUser(Integer id) {
+//		userRepository.deleteById(id);
+//	}
 }
