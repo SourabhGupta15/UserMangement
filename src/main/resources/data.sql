@@ -1,6 +1,6 @@
 /*
-INSERT INTO users (name) VALUES ('John Doe');
-INSERT INTO users (name) VALUES ('Sarah Connor');
-INSERT INTO users (name) VALUES ('Hermoine');
-INSERT INTO users (name) VALUES ('Random Guy');
+INSERT into users (fullName) VALUES ('John Doe');
+INSERT into users (fullName) VALUES ('Sarah Connor');
+INSERT into users (fullName) VALUES ('Hermoine');
+INSERT into users (fullName) VALUES ('Random Guy');
 */
